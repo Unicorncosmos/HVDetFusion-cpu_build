@@ -41,6 +41,7 @@ Either
 - Prepare nuScenes dataset(v1.0trainval)
 Download nuScenes 3D detection [data](https://www.nuscenes.org/download) and unzip all zip files.
 The folder structure should be organized as follows before our processing.
+
 ```
 HVDetFusion-cpu_build
 ├── mmdet3d
@@ -55,19 +56,16 @@ HVDetFusion-cpu_build
 |   |   ├── v1.0-trainval
 ```
 
-# Download checkpoints
-- download [backbone](https://drive.google.com/file/d/1EKIFO0OhA_m5PFB3PoKBgA-sqUwdypNg/view?usp=sharing) into ./checkpoint
-- download [onnx_stage1](https://drive.google.com/file/d/1Axj6HlAZ6hCEkWnqVesRDXjsE_LqSl_b/view?usp=sharing), [onnx_stage1_1](https://drive.google.com/file/d/1U0TqBTz3v-zkgTfyVgCMmrg3Dmo7Fqcy/view?usp=sharing), [onnx_stage2](https://drive.google.com/file/d/17WI0N9lyME1ZSfR4ftG_JcT5yYjkpEMs/view?usp=sharing), [onnx_stage3](https://drive.google.com/file/d/1uv95hDg-KW7Cw0RG8w9NfWGQAdoi0YY0/view?usp=sharing) into ./tools/convter2onnx/onnx_output
-- check args.prefix in tools/HVDet_infer.py 
+# Setup and Inference(Before running the docker make sure the Dataset is prepared based on the above dir structure) 
+```
+docker build -t sfusion_cpu .
+```
 
 # Inference
 ```angular2html
 python tools/HVDet_infer.py configs/hvdet/HVDetInfer_sim.py tools/convter2onnx/onnx_output --fuse-conv-bn --eval bbox  # --offline_eval --out ./res_pkl/test.pkl
 ```
-# Setup
-```
-docker build -t sfusion_cpu .
-```
+
 ## Acknowledgement
 
 This work is built on the open-sourced [HVDetFusion](https://github.com/HVXLab/HVDetFusion/), [BevDet](https://github.com/HuangJunJie2017/BEVDet),[BevDepth](https://github.com/Megvii-BaseDetection/BEVDepth) and the published code of [CenterFusion](https://github.com/mrnabati/CenterFusion).
