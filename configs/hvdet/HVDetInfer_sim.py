@@ -1,6 +1,6 @@
 # Copyright (c) Phigent Robotics. All rights reserved.
 
-_base_ = ['/Users/GOKULNATH/Desktop/po/nus-3d.py', '/Users/GOKULNATH/Desktop/po/default_runtime.py']
+_base_ = ['../_base_/datasets/nus-3d.py', '../_base_/default_runtime.py']
 # Global
 # cloud range accordingly
 point_cloud_range = [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]
