@@ -1,11 +1,9 @@
 # Start with a base image that has the necessary dependencies installed.
 FROM python:3.9-slim-buster
 
-# Copy the requirements.txt file to the container.
-COPY requirements.txt .
+# Install mmcv, mmcv-full, mmdet, mmengine, mmsegmentation, onnx, onnxruntime, and pytorch
+RUN pip install mmcv==1.4.0 mmcv-full==1.4.0 mmdet==2.28.1 mmengine==0.8.2 mmsegmentation==0.30.0 onnx==1.14.1 onnxruntime==1.16.0 torch==1.9.0+cpu -f https://download.pytorch.org/whl/cpu.html
 
-# Install the Python packages listed in requirements.txt using pip.
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code to the container.
 COPY . .
