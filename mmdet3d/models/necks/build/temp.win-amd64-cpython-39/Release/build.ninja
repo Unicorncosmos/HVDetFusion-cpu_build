@@ -1,0 +1,19 @@
+ninja_required_version = 1.3
+cxx = cl
+
+cflags = /nologo /O2 /W3 /GL /DNDEBUG /MD /MD /wd4819 /wd4251 /wd4244 /wd4267 /wd4275 /wd4018 /wd4190 /EHsc -IC:\Users\GOKULNATH\anaconda3\envs\openmmlab\lib\site-packages\torch\include -IC:\Users\GOKULNATH\anaconda3\envs\openmmlab\lib\site-packages\torch\include\torch\csrc\api\include -IC:\Users\GOKULNATH\anaconda3\envs\openmmlab\lib\site-packages\torch\include\TH -IC:\Users\GOKULNATH\anaconda3\envs\openmmlab\lib\site-packages\torch\include\THC -IC:\Users\GOKULNATH\anaconda3\envs\openmmlab\include -IC:\Users\GOKULNATH\anaconda3\envs\openmmlab\Include "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt"
+post_cflags = /std:c++14 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=bev_pool_ext -D_GLIBCXX_USE_CXX11_ABI=0
+ldflags = 
+
+rule compile
+  command = cl /showIncludes $cflags -c $in /Fo$out $post_cflags
+  deps = msvc
+
+
+
+build C$:\Users\GOKULNATH\patham\HVDetFusion\mmdet3d\models\necks\build\temp.win-amd64-cpython-39\Release\bevpool.obj: compile C$:\Users\GOKULNATH\patham\HVDetFusion\mmdet3d\models\necks\bevpool.cpp
+
+
+
+
+
