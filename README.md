@@ -58,7 +58,7 @@ HVDetFusion-cpu_build
 
 # Setup and Inference(Before running the docker make sure the Dataset is prepared based on the above dir structure) 
 ```
-docker build -t sfusion_cpu .
+docker build 
 ```
 
 # Inference
