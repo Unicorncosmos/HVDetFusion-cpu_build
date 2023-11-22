@@ -25,7 +25,7 @@ RUN mkdir -p ./tools/convter2onnx/onnx_output && \
     gdown --id 17WI0N9lyME1ZSfR4ftG_JcT5yYjkpEMs -O ./tools/convter2onnx/onnx_output/onnx_stage2.onnx && \
     gdown --id 1uv95hDg-KW7Cw0RG8w9NfWGQAdoi0YY0 -O ./tools/convter2onnx/onnx_output/onnx_stage3.onnx
 
-
+CMD ["python","mmdet3d/models/necks/setup.py"]
 
 # Set the command to run the application.
 CMD [ "python", "HVDet_infer.py configs/hvdet/HVDetInfer_sim.py tools/convter2onnx/onnx_output --fuse-conv-bn --eval bbox" ]
