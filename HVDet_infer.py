@@ -231,7 +231,7 @@ def main():
                 for _ in range(batch_size):
                     prog_bar.update()
    
-        mmcv.dump(results,"./",file_format='json')
+        mmcv.dump(results,"./")
         print(results)
 
 if __name__ == '__main__':
