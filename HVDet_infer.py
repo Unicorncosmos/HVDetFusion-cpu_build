@@ -230,30 +230,9 @@ def main():
                 batch_size = len(out_bbox_list)
                 for _ in range(batch_size):
                     prog_bar.update()
-        if args.out:
-            print(f'\nwriting results to {args.out}')
-            mmcv.dump(results, args.out)
-    else:
-        results = mmcv.load(args.out)
-    
-    
-    kwargs = {} #if args.eval_options is None else args.eval_options
-    if args.format_only:
-        dataset.format_results(results, **kwargs)
-    # results = mmcv.load//(args.out)
-    print(results)
-    if args.eval:
-        eval_kwargs = cfg.get('evaluation', {}).copy()
-        # hard-code way to remove EvalHook args
-        for key in [
-                'interval', 'tmpdir', 'start', 'gpu_collect', 'save_best',
-                'rule'
-        ]:
-            eval_kwargs.pop(key, None)
-        eval_kwargs.update(dict(metric=args.eval, **kwargs))
-        tmp = dataset.evaluate(results, **eval_kwargs)
-        print("ok")
-
+   
+        mmcv.dump(results,"./",file_format='json')
+        print(results)
 
 if __name__ == '__main__':
 
